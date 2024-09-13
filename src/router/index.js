@@ -1,20 +1,31 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import UsersView from "@/views/UsersView.vue";
+
+const requireAuth = (to, from, next) => {
+  const admin = sessionStorage.getItem("usernameAdmin");
+  if (!admin) next({ name: "SignIn", params: {} });
+  else next();
+};
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "User",
+    beforeEnter: requireAuth,
+    component: UsersView,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: "/products",
+    name: "Products",
+    beforeEnter: requireAuth,
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../views/ProductsView.vue"),
+  },
+  {
+    path: "/signin",
+    name: "SignIn",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/SignIn.vue"),
   },
 ];
 
