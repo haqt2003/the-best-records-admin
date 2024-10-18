@@ -123,7 +123,9 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="song" class="form-label mt-3">Đường dẫn bài hát</label>
+                  <label for="song" class="form-label mt-3"
+                    >Đường dẫn bài hát</label
+                  >
                   <input
                     v-model="product.song"
                     type="text"
@@ -157,7 +159,9 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="prePrice" class="form-label">Giá trước giảm</label>
+                  <label for="prePrice" class="form-label"
+                    >Giá trước giảm</label
+                  >
                   <input
                     v-model="product.prePrice"
                     type="text"
@@ -260,7 +264,9 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="song" class="form-label mt-3">Đường dẫn bài hát</label>
+                  <label for="song" class="form-label mt-3"
+                    >Đường dẫn bài hát</label
+                  >
                   <input
                     v-model="productEdit.song"
                     type="text"
@@ -291,7 +297,9 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="prePrice" class="form-label">Giá trước giảm</label>
+                  <label for="prePrice" class="form-label"
+                    >Giá trước giảm</label
+                  >
                   <input
                     v-model="productEdit.prePrice"
                     type="text"
