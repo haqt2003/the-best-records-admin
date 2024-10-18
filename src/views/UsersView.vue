@@ -31,7 +31,7 @@
               data-bs-toggle="modal"
               data-bs-target="#modalAdd"
             >
-              Add
+              Thêm
             </button>
           </th>
         </tr>
