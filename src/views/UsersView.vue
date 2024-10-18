@@ -1,12 +1,12 @@
 <template>
   <nav>
     <div class="btn-group" role="group" aria-label="Basic example">
-      <router-link to="/" class="btn btn-primary">User</router-link>
-      <router-link to="/products" class="btn btn-primary">Product</router-link>
+      <router-link to="/" class="btn btn-primary">Người dùng</router-link>
+      <router-link to="/products" class="btn btn-primary">Sản phẩm</router-link>
     </div>
 
     <button @click="logout" type="button" class="btn btn-danger">
-      Sign out
+      Đăng ký
     </button>
   </nav>
   <div class="home">
@@ -16,14 +16,14 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Phone</th>
+          <th scope="col">Tên</th>
+          <th scope="col">Số điện thoại</th>
           <th scope="col">Email</th>
-          <th scope="col">Avatar</th>
-          <th scope="col">Province</th>
-          <th scope="col">District</th>
-          <th scope="col">Ward</th>
-          <th scope="col">Detail</th>
+          <th scope="col">Ảnh đại diện</th>
+          <th scope="col">Tỉnh</th>
+          <th scope="col">Quận/Huyện</th>
+          <th scope="col">Phường/Xã</th>
+          <th scope="col">Chi tiết</th>
           <th class="text-end">
             <button
               type="button"
@@ -42,7 +42,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.phonenumber || "Không có" }}</td>
           <td>{{ item.email }}</td>
-          <td><a :href="item.avatar" target="_blank">Link</a></td>
+          <td><a :href="item.avatar" target="_blank">Đường dẫn</a></td>
           <td>{{ item.address.province || "Không có" }}</td>
           <td>{{ item.address.district || "Không có" }}</td>
           <td>{{ item.address.ward || "Không có" }}</td>
@@ -55,14 +55,14 @@
               data-bs-toggle="modal"
               data-bs-target="#modalEdit"
             >
-              Edit
+              Sửa
             </button>
             <button
               @click="delUser(item._id)"
               type="button"
               class="btn btn-danger ml"
             >
-              Delete
+              Xóa
             </button>
           </td>
         </tr>
@@ -79,7 +79,7 @@
       <form @submit.prevent="addNewUser()" class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalAddLabel">Add user</h1>
+            <h1 class="modal-title fs-5" id="modalAddLabel">Thêm người dùng</h1>
             <button
               type="button"
               class="btn-close"
@@ -91,7 +91,7 @@
             <div class="mb-3">
               <div class="row">
                 <div class="col">
-                  <label for="name" class="form-label">Name</label>
+                  <label for="name" class="form-label">Tên</label>
                   <input
                     v-model="user.name"
                     type="text"
@@ -102,7 +102,7 @@
                 </div>
                 <div class="col">
                   <label for="phonenumber" class="form-label"
-                    >Phone Number</label
+                    >Số điện thoại</label
                   >
                   <input
                     v-model="user.phonenumber"
@@ -112,7 +112,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="avatar" class="form-label">Avatar</label>
+                  <label for="avatar" class="form-label">Ảnh đại diện</label>
                   <input
                     v-model="user.avatar"
                     type="avatar"
@@ -133,7 +133,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="password" class="form-label mt-3">Password</label>
+                  <label for="password" class="form-label mt-3">Mật khẩu</label>
                   <input
                     v-model="user.password"
                     type="text"
@@ -144,7 +144,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="province" class="form-label">Province</label>
+                  <label for="province" class="form-label">Tỉnh</label>
                   <input
                     v-model="user.address.province"
                     type="text"
@@ -154,7 +154,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="district" class="form-label">District</label>
+                  <label for="district" class="form-label">Quận/Huyện</label>
                   <input
                     v-model="user.address.district"
                     type="text"
@@ -163,7 +163,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="ward" class="form-label">Ward</label>
+                  <label for="ward" class="form-label">Phường/Xã</label>
                   <input
                     v-model="user.address.ward"
                     type="text"
@@ -175,7 +175,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="detail" class="form-label">Detail address</label>
+              <label for="detail" class="form-label">Chi tiết</label>
               <textarea
                 v-model="user.address.detail"
                 class="form-control"
@@ -191,14 +191,14 @@
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Hủy
             </button>
             <button
               type="submit"
               class="btn btn-success"
               data-bs-dismiss="modal"
             >
-              Add
+              Thêm
             </button>
           </div>
         </div>
@@ -215,7 +215,7 @@
       <form @submit.prevent="edit()" class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalEditLabel">Edit user</h1>
+            <h1 class="modal-title fs-5" id="modalEditLabel">Sửa người dùng</h1>
             <button
               type="button"
               class="btn-close"
@@ -227,7 +227,7 @@
             <div class="mb-3">
               <div class="row">
                 <div class="col">
-                  <label for="name" class="form-label">Name</label>
+                  <label for="name" class="form-label">Tên</label>
                   <input
                     v-model="userEdit.name"
                     type="text"
@@ -238,7 +238,7 @@
                 </div>
                 <div class="col">
                   <label for="phonenumber" class="form-label"
-                    >Phone Number</label
+                    >Số điện thoại</label
                   >
                   <input
                     v-model="userEdit.phonenumber"
@@ -248,7 +248,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="avatar" class="form-label">Avatar</label>
+                  <label for="avatar" class="form-label">Ảnh đại diện</label>
                   <input
                     v-model="userEdit.avatar"
                     type="avatar"
@@ -269,7 +269,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="password" class="form-label mt-3">Password</label>
+                  <label for="password" class="form-label mt-3">Mật khẩu</label>
                   <input
                     v-model="userEdit.password"
                     type="text"
@@ -280,7 +280,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="province" class="form-label">Province</label>
+                  <label for="province" class="form-label">Tỉnh</label>
                   <input
                     v-model="userEdit.address.province"
                     type="text"
@@ -290,7 +290,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="district" class="form-label">District</label>
+                  <label for="district" class="form-label">Quận/Huyện</label>
                   <input
                     v-model="userEdit.address.district"
                     type="text"
@@ -299,7 +299,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="ward" class="form-label">Ward</label>
+                  <label for="ward" class="form-label">Phường/Xã</label>
                   <input
                     v-model="userEdit.address.ward"
                     type="text"
@@ -311,7 +311,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="detail" class="form-label">Detail address</label>
+              <label for="detail" class="form-label">Chi tiết</label>
               <textarea
                 v-model="userEdit.address.detail"
                 class="form-control"
@@ -327,14 +327,14 @@
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Hủy
             </button>
             <button
               type="submit"
               class="btn btn-primary"
               data-bs-dismiss="modal"
             >
-              Save changes
+              Lưu thay đổi
             </button>
           </div>
         </div>

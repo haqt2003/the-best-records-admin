@@ -3,7 +3,7 @@
     <h2 class="text-center">THE BEST RECORDS</h2>
     <form @submit.prevent="enter()">
       <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
+        <label for="username" class="form-label">Tên đăng nhập</label>
         <input
           v-model="username"
           type="text"
@@ -13,7 +13,7 @@
         />
       </div>
       <div class="mb-4">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Mật khẩu</label>
         <input
           v-model="password"
           type="password"
@@ -22,7 +22,7 @@
           autocomplete="current-password"
         />
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Đăng nhập</button>
     </form>
   </div>
 </template>

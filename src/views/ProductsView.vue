@@ -1,11 +1,11 @@
 <template>
   <nav>
     <div class="btn-group" role="group" aria-label="Basic example">
-      <router-link to="/" class="btn btn-primary">User</router-link>
-      <router-link to="/products" class="btn btn-primary">Product</router-link>
+      <router-link to="/" class="btn btn-primary">Người dùng</router-link>
+      <router-link to="/products" class="btn btn-primary">Sản phẩm</router-link>
     </div>
     <button @click="logout" type="button" class="btn btn-danger">
-      Sign out
+      Đăng xuất
     </button>
   </nav>
   <div class="about">
@@ -14,14 +14,14 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Singer</th>
-          <th scope="col">Img</th>
-          <th scope="col">Song</th>
-          <th scope="col">Type</th>
-          <th scope="col">Duration</th>
-          <th scope="col">Pre-Price</th>
-          <th scope="col">Price</th>
+          <th scope="col">Tên bài hát</th>
+          <th scope="col">Ca sĩ</th>
+          <th scope="col">Ảnh</th>
+          <th scope="col">Đường dẫn bài hát</th>
+          <th scope="col">Thể loại</th>
+          <th scope="col">Thời gian</th>
+          <th scope="col">Giá trước giảm</th>
+          <th scope="col">Giá</th>
 
           <th class="text-end">
             <button
@@ -30,7 +30,7 @@
               data-bs-toggle="modal"
               data-bs-target="#modalAdd"
             >
-              Add
+              Thêm
             </button>
           </th>
         </tr>
@@ -40,8 +40,8 @@
           <th scope="row">{{ index + 1 }}</th>
           <td>{{ item.title }}</td>
           <td>{{ item.singer }}</td>
-          <td><a :href="item.img" target="_blank">Link</a></td>
-          <td><a :href="item.song" target="_blank">Link</a></td>
+          <td><a :href="item.img" target="_blank">Đường dẫn</a></td>
+          <td><a :href="item.song" target="_blank">Đường dẫn</a></td>
           <td>{{ item.type }}</td>
           <td>{{ item.duration }}</td>
           <td>{{ item.prePrice || "Không có" }}</td>
@@ -55,14 +55,14 @@
               data-bs-toggle="modal"
               data-bs-target="#modalEdit"
             >
-              Edit
+              Sửa
             </button>
             <button
               @click="delProduct(item._id)"
               type="button"
               class="btn btn-danger ml"
             >
-              Delete
+              Xóa
             </button>
           </td>
         </tr>
@@ -79,7 +79,7 @@
       <form @submit.prevent="addNewProduct()" class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalAddLabel">Add product</h1>
+            <h1 class="modal-title fs-5" id="modalAddLabel">Thêm sản phẩm</h1>
             <button
               type="button"
               class="btn-close"
@@ -91,7 +91,7 @@
             <div class="mb-3">
               <div class="row">
                 <div class="col">
-                  <label for="title" class="form-label">Title</label>
+                  <label for="title" class="form-label">Tên bài hát</label>
                   <input
                     v-model="product.title"
                     type="text"
@@ -101,7 +101,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="singer" class="form-label">Singer</label>
+                  <label for="singer" class="form-label">Ca sĩ</label>
                   <input
                     v-model="product.singer"
                     type="text"
@@ -113,7 +113,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <label for="image" class="form-label mt-3">Image</label>
+                  <label for="image" class="form-label mt-3">Hình ảnh</label>
                   <input
                     v-model="product.img"
                     type="text"
@@ -123,7 +123,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="song" class="form-label mt-3">Song</label>
+                  <label for="song" class="form-label mt-3">Đường dẫn bài hát</label>
                   <input
                     v-model="product.song"
                     type="text"
@@ -135,7 +135,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="type" class="form-label">Type</label>
+                  <label for="type" class="form-label">Thể loại</label>
                   <input
                     v-model="product.type"
                     type="text"
@@ -145,7 +145,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="duration" class="form-label">Duration</label>
+                  <label for="duration" class="form-label">Thời gian</label>
                   <input
                     v-model="product.duration"
                     type="text"
@@ -157,7 +157,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="prePrice" class="form-label">Pre-Price</label>
+                  <label for="prePrice" class="form-label">Giá trước giảm</label>
                   <input
                     v-model="product.prePrice"
                     type="text"
@@ -167,7 +167,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="price" class="form-label">Price</label>
+                  <label for="price" class="form-label">Giá</label>
                   <input
                     v-model="product.price"
                     type="text"
@@ -179,7 +179,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
+              <label for="description" class="form-label">Mô tả</label>
               <textarea
                 v-model="product.description"
                 class="form-control"
@@ -195,14 +195,14 @@
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Hủy
             </button>
             <button
               type="submit"
               class="btn btn-success"
               data-bs-dismiss="modal"
             >
-              Add
+              Thêm
             </button>
           </div>
         </div>
@@ -219,7 +219,7 @@
       <form @submit.prevent="edit()" class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalEditLabel">Edit product</h1>
+            <h1 class="modal-title fs-5" id="modalEditLabel">Sửa sản phẩm</h1>
             <button
               type="button"
               class="btn-close"
@@ -231,7 +231,7 @@
             <div class="mb-3">
               <div class="row">
                 <div class="col">
-                  <label for="title" class="form-label">Title</label>
+                  <label for="title" class="form-label">Tên bài hát</label>
                   <input
                     v-model="productEdit.title"
                     type="text"
@@ -240,7 +240,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="singer" class="form-label">Singer</label>
+                  <label for="singer" class="form-label">Ca sĩ</label>
                   <input
                     v-model="productEdit.singer"
                     type="text"
@@ -251,7 +251,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <label for="image" class="form-label mt-3">Image</label>
+                  <label for="image" class="form-label mt-3">Hình ảnh</label>
                   <input
                     v-model="productEdit.img"
                     type="text"
@@ -260,7 +260,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="song" class="form-label mt-3">Song</label>
+                  <label for="song" class="form-label mt-3">Đường dẫn bài hát</label>
                   <input
                     v-model="productEdit.song"
                     type="text"
@@ -271,7 +271,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="type" class="form-label">Type</label>
+                  <label for="type" class="form-label">Thể loại</label>
                   <input
                     v-model="productEdit.type"
                     type="text"
@@ -280,7 +280,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="duration" class="form-label">Duration</label>
+                  <label for="duration" class="form-label">Thời gian</label>
                   <input
                     v-model="productEdit.duration"
                     type="text"
@@ -291,7 +291,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col">
-                  <label for="prePrice" class="form-label">Pre-Price</label>
+                  <label for="prePrice" class="form-label">Giá trước giảm</label>
                   <input
                     v-model="productEdit.prePrice"
                     type="text"
@@ -300,7 +300,7 @@
                   />
                 </div>
                 <div class="col">
-                  <label for="price" class="form-label">Price</label>
+                  <label for="price" class="form-label">Giá</label>
                   <input
                     v-model="productEdit.price"
                     type="text"
@@ -311,7 +311,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
+              <label for="description" class="form-label">Mô tả</label>
               <textarea
                 v-model="productEdit.description"
                 class="form-control"
@@ -326,14 +326,14 @@
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Hủy
             </button>
             <button
               type="submit"
               class="btn btn-primary"
               data-bs-dismiss="modal"
             >
-              Save changes
+              Lưu thay đổi
             </button>
           </div>
         </div>
